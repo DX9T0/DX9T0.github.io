@@ -3,9 +3,21 @@
 
 <head>
   <style>
+      @font-face { font-family: gamefont; src: url('gamefont1.TTF'); } 
+      h1, h2, h3, p, th{
+         font-family: gamefont
+      }
+
+      h1, h2, h3, th {
+        color: rgb(255, 255, 255);
+      }
+
     .center {
       text-align: center;
-      border: 3px solid rgb(60, 200, 0);
+      border: 2px solid rgb(60, 200, 0);
+      cursor:url(images/cursor.png), auto;
+      height: 100%;
+      border-style: dashed;
     }
 
     p {
@@ -20,13 +32,17 @@
 
     td,
     th {
-      border: 1px solid #dddddd;
+      border: 1px solid #636363;
       text-align: left;
       padding: 8px;
     }
 
     tr:nth-child(even) {
-      background-color: #dddddd;
+      background-color: #292929;
+    }
+
+    html, body {
+      height: 100%;
     }
   </style>
 </head>
@@ -35,57 +51,57 @@
 
   <div class="center">
     <h1>DX Mods</h1>
-
+    <h3>A collection of stuff I made for Cruelty Squad.</h2>
     <table id =modTable>
       <tr>
         <th>Mod</th>
         <th>Description</th>
-        <th>Last Modified</th>
         <th>Download</th>
       </tr>
-      <tr>
-        <td>Randomiser</td>
-        <td><p>Upon loading a level, randomises your implants, difficulty and targets in the level</p></td>
-        <td>DATE</td>
-        <td>    <a href="Randomiser.zip" download>
-          <img src="devtex.png" alt="image">
-        </a></td>
-      </tr>
+
+      <tbody id="modTableBody"></tbody>
     </table>
+    <p>Created by DX.</p>
     <p>Last Updated:</p>
     <p id="datemodified"></p>
   </div>
-
-  <table id="myTable" class="table table-borderless table-striped table-earning">
-    <thead>
-      <tr>
-        <th>date</th>
-        <th>file name</th>
-      </tr>
-    </thead>
-    <tbody id="testBody"></tbody>
-  </table>
   <script>
-    const items1 = [
-      { date: "10/17/2018", name: "john doe" },
-      { date: "10/18/2018", name: "jane doe" },
+
+    const items = [
+    { mod: "Randomiser", iconpath: "moddata/randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+    {mod: "2", iconpath: "moddata/randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+    {mod: "3", iconpath: "moddata/randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+    {mod: "4", iconpath: "moddata/randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+    {mod: "5", iconpath: "moddata/randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+      
+      //{ mod: "Test Mod 1", desc: "john doe" },
+      //{ mod: "Test Mod 1", desc: "john doe" },     
     ];
-    const items2 = [
-      { date: "10/17/2019", name: "john doe" },
-      { date: "10/18/2019", name: "jane doe" },
-    ];
+    //<a href="Randomiser.zip" download><img src="images/dl.png" width="64" height="64" alt="randomiserpic"></a>
     function loadTableData(items) {
-      const table = document.getElementById("testBody");
+      const iconSize = 64;
+      const table = document.getElementById("modTableBody");
       items.forEach( item => {
+        //start row
         let row = table.insertRow();
-        let date = row.insertCell(0);
-        date.innerHTML = item.date;
-        let name = row.insertCell(1);
-        name.innerHTML = item.name;
+        //mod name
+        let mod = row.insertCell(0);
+        //centre this cell content
+        mod.setAttribute("style", "text-align:center");
+        let imgstring = "<img src=\""+ item.iconpath + "\" width=\"" + iconSize + "\" height=\"" + iconSize + "\"alt=\"icon\"></img>";
+        mod.innerHTML = "<p>" + item.mod + "</p>" + imgstring;   
+
+        let desc = row.insertCell(1);
+        desc.innerHTML = "<p>" + item.desc + "</p>";
+
+        let dl = row.insertCell(2);
+        let dlstring = "<a href=\"" + item.dlpath + "\" + download>\"" + "\<img src=\"images/dl.png\" width=\"64\" height=\"64\" alt=\"dllink\"></a>";
+        dl.innerHTML = dlstring;
       });
     }
-    loadTableData(items1);
-    loadTableData(items2);
+
+    loadTableData(items);
+
     loadTableData([]);
   </script>
 

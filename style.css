@@ -1,0 +1,41 @@
+@font-face { font-family: gamefont; src: url('gamefont1.ttf'); } 
+h1, h2, h3, p, th{
+   font-family: gamefont
+}
+
+h1, h2, h3, th {
+  color: rgb(255, 255, 255);
+}
+
+.center {
+text-align: center;
+/*border: 2px solid rgb(60, 200, 0);*/
+cursor:url(images/cursor.png), auto;
+height: 100%;
+/*border-style: dashed;*/
+}
+
+p {
+color: rgb(60, 200, 0);
+}
+
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td,
+th {
+border: 1px solid #636363;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #292929;
+}
+
+html, body {
+height: 100%;
+}

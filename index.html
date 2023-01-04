@@ -7,9 +7,12 @@
 
 <body style="background-color:rgb(10, 10, 10);">
 
+  <!--<img class="screenborder" src="images/border4.png"></img>-->
+
   <div class="center">
+    
     <h1>DX Mods</h1>
-    <h3>A collection of stuff I made for Cruelty Squad.</h2>
+    <h3>A collection of things I made for Cruelty Squad. WIP</h3>
     <table id =modTable>
       <tr>
         <th>Mod</th>
@@ -26,11 +29,11 @@
   <script>
 
     const items = [
-    { mod: "Randomiser", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
-    {mod: "2", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
-    {mod: "3", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
-    {mod: "4", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
-    {mod: "5", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+    { mod: "Randomiser", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level. Not balanced at all.", dlpath: "mods/Randomiser.zip"},
+    {mod: "Armor Fix", iconpath: "moddata/heavy_armor.png", desc: "A fix for implants that have armor values. Previously armor had no effect in game.", dlpath: "mods/ArmorFix.zip"},
+    //{mod: "3", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+    //{mod: "4", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+    //{mod: "5", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
       
       //{ mod: "Test Mod 1", desc: "john doe" },
       //{ mod: "Test Mod 1", desc: "john doe" },     
@@ -54,7 +57,7 @@
 
         let dl = row.insertCell(2);
         dl.setAttribute("style", "text-align:center");
-        let dlstring = "<a href=" + item.dlpath + " download>" + "\<img src=\"images/dl.png\" width=\"80\" height=\"80\" alt=\"dllink\"></a>";
+        let dlstring = "<a href=" + item.dlpath + " download>" + "\<img src=\"images/dl.png\" width=\"80\" height=\"80\" alt=\"dllink\" onclick=\"warn()\"></a>";
         dl.innerHTML = dlstring;
       });
     }
@@ -63,7 +66,13 @@
 
     loadTableData([]);
 
-    alert("This site is still under construction! It is not functioning as intended yet!");
+    alert("This site is still under construction! It might not function as intended yet!");
+
+    function warn(){
+      alert("Because of the nature of how mods work for now, please do not install this alongside other mods or you may experience issues. Thanks! (You can manually check for incompatibilities if you know what you are doing)");
+      var audio = new Audio('mmm.wav');
+      audio.play();
+    }
   </script>
 
 </body>

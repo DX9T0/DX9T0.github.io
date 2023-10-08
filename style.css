@@ -52,3 +52,16 @@ html, body {
 height: 100%;
 }
 
+#container {
+  width: 100%;
+  display: flex;
+}
+#leftThing {
+  width: 25%;
+}
+#content {
+  width: 50%;
+}
+#rightThing {
+  width: 25%;
+}

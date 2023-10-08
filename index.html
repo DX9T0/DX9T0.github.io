@@ -10,9 +10,18 @@
   <!--<img class="screenborder" src="images/border4.png"></img>-->
 
   <div class="center">
-    
     <h1>DX Mods</h1>
-    <h3>A collection of things I made for Cruelty Squad. WIP</h3>
+    </br>
+    <h3>A collection of things I made for Cruelty Squad. WIP!</h3>
+    </br>
+<p> Useful links: </p>
+<p><a href = "https://github.com/disco0/crus-modloader/releases">ModLoader</a> (⚠️ Essential)</p>
+<p ><a href = "https://www.mediafire.com/file/muwn1uxvcoukocv/">ModBase</a> See what mods are installed, custom map support</p>
+<p> Check out <a href="https://crus.cc/">CRUS.CC</a>, for more custom content! (Not just stuff made by me)</p>
+
+</br>
+</br>
+</br>
     <table id =modTable>
       <tr>
         <th>Mod</th>
@@ -29,18 +38,26 @@
   <script>
 
     const items = [
-    { mod: "Randomiser", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level. Not balanced at all.", dlpath: "mods/Randomiser.zip"},
-    {mod: "Armor Fix", iconpath: "moddata/heavy_armor.png", desc: "A fix for implants that have armor values. Previously armor had no effect in game.", dlpath: "mods/ArmorFix.zip"},
-    //{mod: "3", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
-    //{mod: "4", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
+    {mod: "Remote Explosive Implant", iconpath: "moddata/none.png", desc: "Remote explosives that can be detonated from a distance after being thrown. They stick to surfaces and NPCs, and can also be picked back up.", dlpath: "https://www.mediafire.com/file_premium/8k10krzd2t806ec/"},
+    {mod: "Easier Reload(s)", iconpath: "moddata/Nambu.png", desc: "Small accessibilty mods to make reloading less reliant on mouse sensitivity.", dlpath: "https://app.mediafire.com/itmhg1q1z09h5"},
+    {mod: "Divine Decals", iconpath: "moddata/vomit_n.png", desc: "Replaces textures for blood, vomit and gibs with goopier versions that react to light. Also makes bullet holes appear 3D. Achieved with custom normal and heightmaps. !Incompatible with stutter fix!", dlpath: "https://www.mediafire.com/file_premium/w8cd2hw0m5aq36m/"},
+    {mod: "Slide Implant", iconpath: "moddata/slide_implant_icon.png", desc: "An implant that allows you to slide around, similar to other movement shooters.", dlpath: "https://www.mediafire.com/file_premium/pzknvvyl73cxar5/"},
+    {mod: "Jump Map Utilities", iconpath: "moddata/s.png", desc: "Some tools for mappers making parkour maps.", dlpath: "https://www.mediafire.com/file_premium/lf1fmoit0vzu1zp/"},
+    {mod: "Jump Map Example", iconpath: "moddata/preview.png", desc: "A short jump/kz/parkour/obstacle map showcasing my mapping utilities. Works standalone, no need to download the utlities.", dlpath: "https://www.mediafire.com/file_premium/8lxkix53a2oyzgl/"},
+    {mod: "Dual Wielding", iconpath: "moddata/guns.png", desc: "Wield any combination of weapons at the same time. Probably a little buggy due to the nature of the game's code.", dlpath: "https://www.mediafire.com/file_premium/davbsthgry1ampd/"},
+    {mod: "Stutter Fix", iconpath: "moddata/stock.png", desc: "Forces the game to render nearly every material for a few frames when you load into a level. Helps with stuttering, especially on AMD graphiocs cards.", dlpath: "https://www.mediafire.com/file_premium/gi9cx3r94c74c4h/"},
+    {mod: "Armor Fix (Obsolete)", iconpath: "moddata/heavy_armor.png", desc: "A fix for implants armor values not having any effect. Armor values were fixed in and update on 27/03/2023.", dlpath: "https://www.mediafire.com/file_premium/o4f53megijtsscf/"},
+    {mod: "Randomiser (Old AF)", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level. Not very fun or balanced, it was my first mod.", dlpath: "https://www.mediafire.com/file_premium/kjyhe0wem05zokk/"},
     //{mod: "5", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
       
       //{ mod: "Test Mod 1", desc: "john doe" },
       //{ mod: "Test Mod 1", desc: "john doe" },     
     ];
     //<a href="Randomiser.zip" download><img src="images/dl.png" width="64" height="64" alt="randomiserpic"></a>
+
+
     function loadTableData(items) {
-      const iconSize = 64;
+      const iconSize = 80;
       const table = document.getElementById("modTableBody");
       items.forEach( item => {
         //start row
@@ -51,29 +68,29 @@
         mod.setAttribute("style", "text-align:center");
         let imgstring = "<img src=\""+ item.iconpath + "\" width=\"" + iconSize + "\" height=\"" + iconSize + "\"alt=\"icon\"></img>";
         mod.innerHTML = "<p>" + item.mod + "</p>" + imgstring;   
-
+        //mod.innerHTML = imgstring; 
         let desc = row.insertCell(1);
         desc.innerHTML = "<p>" + item.desc + "</p>";
 
         let dl = row.insertCell(2);
         dl.setAttribute("style", "text-align:center");
-        let dlstring = "<a href=" + item.dlpath + " download>" + "\<img src=\"images/dl.png\" width=\"80\" height=\"80\" alt=\"dllink\" onclick=\"warn()\"></a>";
+        let dlstring = "<a href=" + item.dlpath + " download>" + "\<img src=\"images/dl2.png\" width=\"" + iconSize + "\" height=\"" + iconSize + "\" alt=\"dllink\" onclick=\"warn()\"></a>";
         dl.innerHTML = dlstring;
       });
     }
 
     loadTableData(items);
-
     loadTableData([]);
 
-    alert("This site is still under construction! It might not function as intended yet!");
+    //alert("This site is still under construction! It might not function as intended yet!");
 
     function warn(){
-      alert("Because of the nature of how mods work for now, please do not install this alongside other mods or you may experience issues. Thanks! (You can manually check for incompatibilities if you know what you are doing)");
+      //alert("Warning! This mod is poorly made! It is likely from a time before I got better at modding. You might not want to install this alongside other mods or you may experience issues. Thanks! (You can manually check for incompatibilities if you know what you are doing)");
       var audio = new Audio('mmm.wav');
       audio.play();
     }
   </script>
+
 
 </body>
 <script>

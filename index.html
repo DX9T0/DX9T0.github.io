@@ -7,108 +7,44 @@
 
 <body style="background-color:rgb(10, 10, 10);">
 
-  <!--<img class="screenborder" src="images/border4.png"></img>-->
-
   <div class="center">
     <h1>DX Mods</h1>
-  <h3>A collection of things I made for Cruelty Squad. WIP!</h3>
-  </br>
 
-<div id="container">
+    <div class="gif-container">
+      <img src="images/pfp_fast.gif" alt="Profile Picture" class="pfp-gif">
+    </div>
 
-  <div id="leftThing">
-    <p><a href="https://www.youtube.com/@dx9xd"><img src= "images/youtube.png"></a></p>
-  </div>
-    <div id="content">
-    <p> Useful links: </p>
-    <p><a href = "https://github.com/disco0/crus-modloader/releases">ModLoader</a> (⚠️ Essential)</p>
-    <p ><a href = "https://www.mediafire.com/file/muwn1uxvcoukocv/">ModBase</a> See what mods are installed, custom map support</p>
-    <p> Check out <a href="https://crus.cc/">CRUS.CC</a>, for more custom content!</p>
-  </div>
-  <div id="rightThing">
-    <p><a href="https://twitter.com/dx_dev_"><img src= "images/twitter.png"></a></p>
-  </div>
-
-</div>
-</br>
-</br>
-</br>
-    <table id =modTable>
+    <h2>A collection of things I have made for Cruelty Squad.</h2>
+    <div id="container">
+      <div id="leftThing">
+        <p><a href="https://www.youtube.com/@dx9xd"><img src="images/youtube.png" alt="YouTube"></a></p>
+      </div>
+      <div id="content">
+        <p>Useful links:</p>
+        <p><a href="https://github.com/disco0/crus-modloader/releases">ModLoader</a> (⚠️ Essential)</p>
+        <p><a href="https://www.mediafire.com/file/muwn1uxvcoukocv/">ModBase</a> See what mods are installed, custom map support</p>
+        <p>Check out <a href="https://crus.cc/">CRUS.CC</a>, for more custom content!</p>
+      </div>
+      <div id="rightThing">
+        <p><a href="https://twitter.com/dx_dev_"><img src="images/twitter.png" alt="Twitter"></a></p>
+      </div>
+    </div>
+    <div class="space"></div>
+    <table id="modTable" style="width:60%">
       <tr>
         <th>Mod</th>
         <th>Description</th>
         <th>Download</th>
       </tr>
-
       <tbody id="modTableBody"></tbody>
     </table>
+
     <p>Created by DX.</p>
     <p>Last Updated:</p>
     <p id="datemodified"></p>
   </div>
-  <script>
 
-    const items = [
-	{mod: "The Good Ending", iconpath: "moddata/goodending.png", desc: "A silly map I made featuring custom scripting and animations.", dlpath: "https://drive.proton.me/urls/J4KVXQ2JFW#hREYwzLwigCH"},
-    {mod: "CruS Mod Packager", iconpath: "moddata/plugin.png", desc: "Godot plugin made specifically for exporting Cruelty Squad mods. It streamlines the process of fetching imported files, creating the mod info and exporting the mod, among other useful things.", dlpath: "https://github.com/DX9T0/CruSModPackager"},
-    {mod: "Slow Motion Implant", iconpath: "moddata/mushroom.png", desc: "Allows the user to slow time. Consecutive kills increase refill the slow motion duration.", dlpath: "https://www.mediafire.com/file_premium/rmsz7rcxqwaiq7k/"},
-    {mod: "Dual Wielding", iconpath: "moddata/guns.png", desc: "Wield any combination of 2 weapons at the same time. Probably a little buggy due to the nature of the game's code.", dlpath: "https://www.mediafire.com/file_premium/kuo8wilpmvwm0ma/"},
-    {mod: "Easier Reload(s)", iconpath: "moddata/Nambu.png", desc: "Small accessibilty mods to make reloading less reliant on mouse sensitivity.", dlpath: "https://app.mediafire.com/itmhg1q1z09h5"},
-    {mod: "Remote Explosive Implant", iconpath: "moddata/none.png", desc: "!Preview Version (not finished)! Remote explosives that can be detonated from a distance after being thrown. They stick to surfaces and NPCs, and can also be picked back up.", dlpath: "https://www.mediafire.com/file_premium/8k10krzd2t806ec/"},
-    {mod: "Divine Decals", iconpath: "moddata/vomit_n.png", desc: "Replaces textures for blood, vomit and gibs with goopier versions that react to light. Also makes bullet holes appear 3D. Achieved with custom normal and heightmaps.", dlpath: "https://www.mediafire.com/file_premium/w8cd2hw0m5aq36m/"},
-    {mod: "Slide Implant", iconpath: "moddata/slide_implant_icon.png", desc: "An implant that allows you to slide around, similar to other movement shooters.", dlpath: "https://www.mediafire.com/file_premium/pzknvvyl73cxar5/"},
-    {mod: "Jump Map Utilities", iconpath: "moddata/s.png", desc: "Some tools for mappers making parkour maps.", dlpath: "https://www.mediafire.com/file_premium/lf1fmoit0vzu1zp/"},
-    {mod: "Jump Map Example", iconpath: "moddata/preview.png", desc: "A short jump/kz/parkour/obstacle map showcasing my mapping utilities. Works standalone, no need to download the utlities.", dlpath: "https://www.mediafire.com/file_premium/8lxkix53a2oyzgl/"},
-    {mod: "Stutter Fix", iconpath: "moddata/stock.png", desc: "Forces the game to render nearly every material for a few frames when you load into a level. Helps with stuttering, especially on AMD graphics cards.", dlpath: "https://www.mediafire.com/file_premium/gi9cx3r94c74c4h/"},
-    {mod: "Armor Fix (Obsolete)", iconpath: "moddata/heavy_armor.png", desc: "A previous fix for implants armor values not having any effect. Armor values were fixed in and update on 27/03/2023.", dlpath: "https://www.mediafire.com/file_premium/o4f53megijtsscf/"},
-    {mod: "Randomiser (Old AF)", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level. Not very fun or balanced, it was my first mod.", dlpath: "https://www.mediafire.com/file_premium/kjyhe0wem05zokk/"},
-    //{mod: "5", iconpath: "moddata/Randomiser.png", desc: "Upon loading a level, randomises your implants, difficulty and targets in the level", dlpath: "mods/Randomiser.zip"},
-      
-      //{ mod: "Test Mod 1", desc: "john doe" },
-      //{ mod: "Test Mod 1", desc: "john doe" },     
-    ];
-    //<a href="Randomiser.zip" download><img src="images/dl.png" width="64" height="64" alt="randomiserpic"></a>
-
-
-    function loadTableData(items) {
-      const iconSize = 80;
-      const table = document.getElementById("modTableBody");
-      items.forEach( item => {
-        //start row
-        let row = table.insertRow();
-        //mod name
-        let mod = row.insertCell(0);
-        //centre this cell content
-        mod.setAttribute("style", "text-align:center");
-        let imgstring = "<img src=\""+ item.iconpath + "\" width=\"" + iconSize + "\" height=\"" + iconSize + "\"alt=\"icon\"></img>";
-        mod.innerHTML = "<p>" + item.mod + "</p>" + imgstring;   
-        //mod.innerHTML = imgstring; 
-        let desc = row.insertCell(1);
-        desc.innerHTML = "<p>" + item.desc + "</p>";
-
-        let dl = row.insertCell(2);
-        dl.setAttribute("style", "text-align:center");
-        let dlstring = "<a href=" + item.dlpath + " download>" + "\<img src=\"images/dl2.png\" width=\"" + iconSize + "\" height=\"" + iconSize + "\" alt=\"dllink\" onclick=\"warn()\"></a>";
-        dl.innerHTML = dlstring;
-      });
-    }
-
-    loadTableData(items);
-    loadTableData([]);
-
-    //alert("This site is still under construction! It might not function as intended yet!");
-
-    function warn(){
-      //alert("Just a heads up");
-      var audio = new Audio('mmm.wav');
-      audio.play();
-    }
-  </script>
-
-
+  <script src="script.js"></script>
 </body>
-<script>
-  let d = document.lastModified;
-  document.getElementById("datemodified").innerHTML = d;
-</script>
+
 </html>

@@ -1,5 +1,6 @@
 
 const items = [
+  { mod: "Custom Res", iconpath: "moddata/res.png", desc: "Change your game resolution to silly values. Play 4:3 stretched like god intended.", dlpath: 	"mods/CustomRes.zip"},
   { mod: "The Good Ending", iconpath: "moddata/goodending.png", desc: "A silly map I made featuring custom scripting and animations.", dlpath: "https://drive.proton.me/urls/J4KVXQ2JFW#hREYwzLwigCH" },
   { mod: "CruS Mod Packager", iconpath: "moddata/plugin.png", desc: "Godot plugin made specifically for exporting Cruelty Squad mods. It streamlines the process of fetching imported files, creating the mod info and exporting the mod, among other useful things.", dlpath: "https://github.com/DX9T0/CruSModPackager" },
   { mod: "Slow Motion Implant", iconpath: "moddata/mushroom.png", desc: "Allows the user to slow time. Consecutive kills increase refill the slow motion duration.", dlpath: "https://www.mediafire.com/file_premium/rmsz7rcxqwaiq7k/" },
